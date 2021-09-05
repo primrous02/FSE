@@ -1,22 +1,25 @@
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
-int main1() {
-	int a, b, res;
-	char c;
-	cout << "+/- ?" << endl;
-	cin >> c;
-	cout << "First number" << endl;
-	cin >> a;
-	cout << "Second number" << endl;
-	cin >> b;
-	if (c == '+') {
-		res = a + b;
+int main() {
+	double a, b, c;
+	char d;
+	int p = 1;
+	while (p != 2) {
+		printf("1 - Calculator\n2 - Exit\n");
+		scanf("%d", &p);
+		if (p != 1) break;
+		printf("Write expression (Without spaces!): ");
+		scanf("%lf%c%lf", &a, &d, &b);
+		while (getchar() != '\n');
+		switch (d) {
+		case '+': c = a + b; break;
+		case '-': c = a - b; break;
+		case '*': c = a * b; break;
+		case '/': c = a / b; break;
+		default:
+			printf("Wrong action\n");
+		}
+		printf("Result: %lf\n", c);
 	}
-	else {
-		res = a - b;
-	}
-	cout << "Result: " << a << c << b << " = " << res << endl;
-
-	return 0;
 }
