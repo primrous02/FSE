@@ -1,7 +1,7 @@
 #include <stdio.h>
 using namespace std;
 
-int main2() {
+int main() {
 	double a, b, c;
 	char d;
 	int p = 1;
@@ -10,8 +10,15 @@ int main2() {
 		scanf("%d", &p);
 		if (p != 1) break;
 		printf("Write expression (Without spaces!): ");
-		scanf("%lf%c%%lf", &a, &d, &b);
+		scanf("%lf%c%lf", &a, &d, &b);
+		switch (d) {
+		case '+': c = a + b; break;
+		case '-': c = a - b; break;
+		case '*': c = a * b; break;
+		case '/': c = a / b; break;
+		default:
+			printf("Wrong action\n");
+		}
+		printf("Result: %lf\n", c);
 	}
-
-
 }
